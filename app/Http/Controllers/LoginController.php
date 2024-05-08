@@ -61,4 +61,8 @@ class LoginController extends Controller
     {
         //
     }
+
+    public function indexRegister(){
+        return view('auth.register');
+    }
 }
