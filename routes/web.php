@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,4 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[LoginController::class,'index']);
+Route::post('/login',[LoginController::class,'login']);
 Route::get('/register',[LoginController::class,'indexRegister']);
+Route::get('/dashboard',[DashboardController::class,'index']);
+Route::get('/userDashboard',[DashboardController::class,'indexUser']);
+
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

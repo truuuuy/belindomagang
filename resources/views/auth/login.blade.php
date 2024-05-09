@@ -54,18 +54,17 @@
                     <p class="text-muted mb-4">Enter your email address and password to access account.</p>
 
                     <!-- form -->
-                    <form action="#">
+                    <form action="/login" method="POST">
+                        @csrf
                         <div class="mb-3">
                             <label for="emailaddress" class="form-label">Email address</label>
-                            <input class="form-control" type="email" id="emailaddress" required=""
+                            <input class="form-control" type="email" id="emailaddress" name="email" required=""
                                 placeholder="Enter your email">
                         </div>
                         <div class="mb-3">
-                            <a href="auth-recoverpw-2.html" class="text-muted float-end"><small>Forgot your
-                                    password?</small></a>
                             <label for="password" class="form-label">Password</label>
                             <div class="input-group input-group-merge">
-                                <input type="password" id="password" class="form-control"
+                                <input type="password" name="password" id="password" class="form-control"
                                     placeholder="Enter your password">
                                 <div class="input-group-text" data-password="false">
                                     <span class="password-eye"></span>
