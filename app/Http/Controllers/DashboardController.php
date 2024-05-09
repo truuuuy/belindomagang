@@ -13,6 +13,7 @@ class DashboardController extends Controller
     {
         return view('app.dashboard');
     }
+    
     public function indexUser()
     {
         return view('app.userDashboard');

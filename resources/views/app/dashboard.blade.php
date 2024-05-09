@@ -328,7 +328,7 @@
     
                     <div class="dropdown-divider"></div>
     
-                    <form action="{{route('logout')}}" method="POST">
+                    <form id="logout-form" action="{{route('logout')}}" method="POST">
                         @csrf
                         <button class="dropdown-item" type="submit">
                           <i class="fe-log-out"></i>Logout
@@ -2112,6 +2112,16 @@
 
         <!-- App js-->
         <script src="../assets/js/app.min.js"></script>
+
+        {{-- Fungsi mencegah tombol kembali --}}
+        <script>
+            document.getElementById('logout-form').addEventListener('submit', function(event) {
+                event.preventDefault(); // Menghentikan form dari submit langsung
+        
+                // Mengarahkan pengguna ke halaman login setelah logout berhasil
+                window.location.replace("{{ route('login') }}");
+            });
+        </script>
         
     </body>
 </html>

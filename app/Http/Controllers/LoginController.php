@@ -63,39 +63,40 @@ class LoginController extends Controller
         //
     }
 
-    public function indexRegister(){
+    public function indexRegister()
+    {
         return view('auth.register');
     }
 
-    
-public function login(Request $request)
-{
-    $credentials = $request->only('email', 'password');
 
-    if (Auth::attempt($credentials)) {
-        $user = Auth::user();
-        
-        // Jika user berhasil login
-        if ($user->hasRole('admin')) {
-            return redirect('/dashboard');
-        } else {
-            return redirect('/userDashboard');
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+
+            // Jika user berhasil login
+            if ($user->hasRole('admin')) {
+                return redirect('/dashboard');
+            } else {
+                return redirect('/userDashboard');
+            }
         }
-    }
 
-    // Jika login gagal, kembalikan ke halaman login dengan pesan error
-    return redirect()->back()->withInput($request->only('email'))->withErrors([
-        'email' => 'Email atau password salah.',
-    ]);
-}
-public function logout(Request $request)
+        // Jika login gagal, kembalikan ke halaman login dengan pesan error
+        return redirect()->back()->withInput($request->only('email'))->withErrors([
+            'email' => 'Email atau password salah.',
+        ]);
+    }
+    
+    public function logout(Request $request)
     {
         Auth::logout();
 
-        // Mencegah pengguna kembali ke halaman sebelumnya menggunakan tombol "kembali" di browser
+        // Mengatur header Cache-Control untuk mencegah browser cache halaman setelah logout
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-
         return redirect('/');
     }
 }

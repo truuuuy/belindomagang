@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[LoginController::class,'index']);
+
+Route::get('/',[LoginController::class,'index'])->name('login');
 Route::post('/login',[LoginController::class,'login']);
 Route::get('/register',[LoginController::class,'indexRegister']);
 Route::get('/dashboard',[DashboardController::class,'index']);
 Route::get('/userDashboard',[DashboardController::class,'indexUser']);
-
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
