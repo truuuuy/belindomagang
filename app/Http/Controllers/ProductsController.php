@@ -4,24 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('app.dashboard');
-    }
-    
-    public function indexUser()
-    {
-        return view('app.userDashboard');
-    }
-
-    public function keloladDashboard()
-    {
-        return view('app.keloladashboard');
+        //
     }
 
     /**
