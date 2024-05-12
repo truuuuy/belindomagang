@@ -4,10 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Categories;
-<<<<<<< Updated upstream
-=======
 use Illuminate\Support\Str;
->>>>>>> Stashed changes
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -28,17 +25,6 @@ class Products extends Model
         'user_id',
     ];
 
-<<<<<<< Updated upstream
-    public static function getProducts()
-    {
-        return DB::table('products')->get();
-    }
-
-    public static function addProducts($data)
-    {
-        return DB::insert('INSERT INTO categories (nama_kategori, created_at) VALUES (?,?)', [
-            $data['products'],
-=======
     public static function getProduct()
     {
         $query = DB::table('products')
@@ -75,13 +61,10 @@ class Products extends Model
             $data['gambar_produk'] ?? null,
             $data['kategori_id'],
             $data['user_id'],
->>>>>>> Stashed changes
             now(),
         ]);
     }
 
-<<<<<<< Updated upstream
-=======
     private static function storeImage($image)
     {
         $imageName = Str::uuid() . '.' . $image->getClientOriginalExtension(); // Membuat nama unik untuk gambar
@@ -96,7 +79,6 @@ class Products extends Model
 
 
 
->>>>>>> Stashed changes
     public function categories()
     {
         return $this->belongsTo(Categories::class, 'kategori_id');
