@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Categories;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -20,6 +21,19 @@ class Products extends Model
         'kategori_id',
         'user_id',
     ];
+
+    public static function getProducts()
+    {
+        return DB::table('products')->get();
+    }
+
+    public static function addProducts($data)
+    {
+        return DB::insert('INSERT INTO categories (nama_kategori, created_at) VALUES (?,?)', [
+            $data['products'],
+            now(),
+        ]);
+    }
 
     public function categories()
     {
