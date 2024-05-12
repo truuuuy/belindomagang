@@ -24,6 +24,7 @@
 
                         <tbody>
                             @foreach ($data as $item)
+                            {{-- @dd($item) --}}
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->nama_kategori }}</td>

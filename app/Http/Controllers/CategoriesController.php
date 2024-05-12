@@ -45,7 +45,6 @@ class CategoriesController extends Controller
             alert()->success('Success','Category berhasil di inputkan');
             return redirect()->route('category.index');
         } else {
-            // Redirect kembali dengan pesan kesalahan jika gagal
             return back()->withInput()->with('error', 'Failed to create product.');
         }
     }

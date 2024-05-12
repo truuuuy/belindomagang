@@ -15,6 +15,9 @@ class ProductsController extends Controller
     public function index()
     {
         $data = Products::getProduct();
+        $title = 'Delete Product!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
         // dd($data);
         return view('app.product.index_product', compact('data'));
     }
@@ -45,7 +48,14 @@ class ProductsController extends Controller
         ]);
     
         $success = Products::addProduct($validation);
-        dd($success);
+        // dd($success);
+        if ($success) {
+            alert()->success('Success', 'Data berhasil disimpan');
+            return redirect()->route('product.index');
+        }else{
+            alert()->error('Error', 'Data gagal disimpan');
+            return redirect()->route('product.create');
+        }
     }
     
 
@@ -62,7 +72,11 @@ class ProductsController extends Controller
      */
     public function edit(string $id)
     {
-        return view('app.product.update_product');
+        $data = Products::getProductById($id);
+        $categories = Categories::getCategory();
+        $users = User::all();
+        // dd($data);
+        return view('app.product.update_product', compact('data', 'categories', 'users'));
     }
 
     /**
@@ -70,7 +84,26 @@ class ProductsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'nama_produk' => 'required|string|max:255',
+            'deskripsi' => 'required|string|max:255',
+            'harga' => 'required|integer',
+            'stok' => 'required|integer',
+            'gambar_produk' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
+            'kategori_id' => 'required|integer', 
+            'user_id' => 'required|integer', 
+        ]);
+
+        $data = $request->all();
+        $updated = Products::updateProduct($id, $data);
+        // dd($updated);
+        if ($updated) {
+            alert()->success('success', 'Data berhasil di update');
+            return redirect()->route('product.index');
+        }else{
+            alert()->error('error', 'Data gagal di update');
+            return response()->json('gagal terupdate', 500);
+        }
     }
 
     /**
@@ -78,6 +111,12 @@ class ProductsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $deleted = Products::deleteProduct($id);
+
+        if ($deleted) {
+            return redirect()->route('product.index')->with('success', 'Product berhasil dihapus.');
+        } else {
+            return back()->with('error', 'Gagal menghapus Product. Silakan coba lagi.');
+        }
     }
 }

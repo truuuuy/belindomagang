@@ -5,8 +5,7 @@
         <div class="page-title-box">
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{ route('product.index') }}">Product</a></li>
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Data Product</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('product.index') }}">Data Product</a></li>
                 </ol>
             </div>
             <h4 class="page-title">Product</h4>
@@ -41,24 +40,31 @@
 
                         <tbody>
                             @foreach ($data as $item)
-                            <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$item->nama_produk}}</td>
-                                <td>{{$item->deskripsi}}</td>
-                                <td>{{$item->harga}}</td>
-                                <td>{{$item->stok}}</td>
-                                <td>{{$item->gambar_produk}}</td>
-                                <td>{{$item->nama_kategori}}</td>
-                                <td>{{$item->nama_user}}</td>
-                                <td>
-                                    <a class="btn btn-info" type="button" href="">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </a>
-                                    <a href="" class="btn btn-danger" data-confirm-delete="true">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                            {{-- @dd($item) --}}
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->nama_produk }}</td>
+                                    <td>{{ $item->deskripsi }}</td>
+                                    <td>{{ $item->harga }}</td>
+                                    <td>{{ $item->stok }}</td>
+                                    <td>
+                                        @if ($item->gambar_produk)
+                                            <img src="{{ asset('storage/produk/' . $item->gambar_produk) }}" width="100" alt="Gambar Produk">
+                                        @else
+                                            <span>Tidak ada gambar</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $item->nama_kategori }}</td>
+                                    <td>{{ $item->nama_user }}</td>
+                                    <td>
+                                        <a class="btn btn-info" href="/editProduct/{{$item->id}}">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </a>
+                                        <a href="/deleteProduct/{{$item->id}}" class="btn btn-danger" data-confirm-delete="true">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

@@ -7,7 +7,7 @@
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ route('product.index') }}">Product</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('product.index') }}">Data Product</a></li>
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Add Product</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('product.index') }}">Add Product</a></li>
                 </ol>
             </div>
             <h4 class="page-title">Product</h4>
@@ -17,7 +17,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('product.store') }}" method="POST" class="parsley-examples">
+                    <form action="{{ route('product.store') }}" method="POST" class="parsley-examples" enctype="multipart/form-data">
                        @csrf
                         <div class="mb-3">
                             <label for="userName" class="form-label">Nama Produk<span class="text-danger">*</span></label>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="example-fileinput" class="form-label">Gambar</label>
-                            <input type="file" id="example-fileinput" class="form-control">
+                            <input type="file" name="gambar_produk" id="example-fileinput" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="example-fileinput" class="form-label">Kategori</label>

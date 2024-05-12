@@ -41,6 +41,9 @@ Route::group(['middleware' => ['role:admin']], function(){
     Route::get('/indexProduct', [ProductsController::class, 'index'])->name('product.index');
     Route::get('/addProduct', [ProductsController::class,'create'])->name('product.create');
     Route::post('/insertProduct', [ProductsController::class,'store'])->name('product.store');
+    Route::get('/editProduct/{id}', [ProductsController::class,'edit'])->name('product.edit');
+    Route::post('/updateProduct/{id}', [ProductsController::class,'update'])->name('product.update');
+    Route::delete('/deleteProduct/{id}', [ProductsController::class,'destroy'])->name('product.delete');
 });
 
 Route::group(['middleware' => ['role:user|admin']], function(){
