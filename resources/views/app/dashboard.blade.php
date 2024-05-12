@@ -188,6 +188,13 @@
                         </li>
 
                         <li>
+                            <a href="{{route('product.index')}}">
+                                <i data-feather="activity"></i>
+                                <span> product </span>
+                            </a>
+                        </li>
+
+                        <li>
                             <a href="#sidebarMaps" data-bs-toggle="collapse">
                                 <i data-feather="map"></i>
                                 <span> Maps </span>
@@ -287,6 +294,8 @@
                     @yield('dashboardAdmin')
                     @yield('category')
                     @yield('category_add')
+                    @yield('product')
+                    @yield('product_add')
 
                 </div> <!-- container -->
 

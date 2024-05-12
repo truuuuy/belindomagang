@@ -57,8 +57,6 @@ class Categories extends Model
 
 
 
-
-
     public function produk()
     {
         return $this->hasMany(Products::class);

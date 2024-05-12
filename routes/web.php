@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Contracts\Role;
 
@@ -35,6 +36,11 @@ Route::group(['middleware' => ['role:admin']], function(){
     Route::get('/editCategory/{id}', [CategoriesController::class,'edit'])->name('category.edit');
     Route::post('/updateCategory/{id}', [CategoriesController::class,'update'])->name('category.update');
     Route::delete('/deleteCategory/{id}', [CategoriesController::class,'destroy'])->name('category.delete');
+
+    // PRODUCT
+    Route::get('/indexProduct', [ProductsController::class, 'index'])->name('product.index');
+    Route::get('/addProduct', [ProductsController::class,'create'])->name('product.create');
+    Route::post('/insertProduct', [ProductsController::class,'store'])->name('product.store');
 });
 
 Route::group(['middleware' => ['role:user|admin']], function(){
