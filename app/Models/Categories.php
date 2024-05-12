@@ -41,9 +41,13 @@ class Categories extends Model
     }
 
 
-    public static function updateCategory($id)
+    public static function updateCategory($id, $data)
     {
-        return DB::delete('DELETE FROM categories WHERE id = ?', [$id]);
+        return DB::update('UPDATE categories SET nama_kategori = ?, updated_at = ? WHERE id = ?', [
+            $data['nama_kategori'],
+            now()->format('Y-m-d H:i:s'),
+            $id
+        ]);
     }
 
     public static function deleteCategory($id)
