@@ -195,6 +195,13 @@
                         </li>
 
                         <li>
+                            <a href="{{route('banner.index')}}">
+                                <i data-feather="activity"></i>
+                                <span> banner </span>
+                            </a>
+                        </li>
+
+                        <li>
                             <a href="#sidebarMaps" data-bs-toggle="collapse">
                                 <i data-feather="map"></i>
                                 <span> Maps </span>
@@ -296,6 +303,8 @@
                     @yield('category_add')
                     @yield('product')
                     @yield('product_add')
+                    @yield('banner')
+                    @yield('add_banner')
 
                 </div> <!-- container -->
 

@@ -1,11 +1,14 @@
 <?php
 
-use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ProductsController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Contracts\Role;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +25,6 @@ use Spatie\Permission\Contracts\Role;
 Route::get('/',[LoginController::class,'index'])->name('login');
 Route::post('/login',[LoginController::class,'login']);
 Route::get('/register',[LoginController::class,'indexRegister']);
-
-
 
 Route::group(['middleware' => ['role:admin']], function(){
     Route::get('/dashboard',[DashboardController::class,'index']);
@@ -44,8 +45,13 @@ Route::group(['middleware' => ['role:admin']], function(){
     Route::get('/editProduct/{id}', [ProductsController::class,'edit'])->name('product.edit');
     Route::post('/updateProduct/{id}', [ProductsController::class,'update'])->name('product.update');
     Route::delete('/deleteProduct/{id}', [ProductsController::class,'destroy'])->name('product.delete');
+
 });
 
 Route::group(['middleware' => ['role:user|admin']], function(){
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
+
+Route::group(['middleware' => ['role:user']], function(){
+    Route::get('/template', [TemplateController::class, 'index']);
 });

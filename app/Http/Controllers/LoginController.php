@@ -78,9 +78,11 @@ class LoginController extends Controller
 
             // Jika user berhasil login
             if ($user->hasRole('admin')) {
+                alert()->success('Berhasil login');
                 return redirect('/dashboard');
             } else {
-                return redirect('/userDashboard');
+                alert()->success('Berhasil login');
+                return redirect('/template');
             }
         }
 
