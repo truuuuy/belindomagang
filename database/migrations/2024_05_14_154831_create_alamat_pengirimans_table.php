@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Schema\ForeignKeyDefinition;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -11,10 +12,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('keranjangs', function (Blueprint $table) {
+        Schema::create('alamat_pengirimans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('alamat');
+            $table->string('kota');
+            $table->integer("kode_pos");
+            $table->integer('no_telepon');
             $table->timestamps();
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
@@ -24,10 +30,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('keranjangs', function (Blueprint $table)
+        Schema::table('alamat_pengirimans', function (Blueprint $table)
         {
             $table->dropForeign(['user_id']);
         });
-        Schema::dropIfExists('keranjangs');
+        Schema::dropIfExists('alamat_pengirimans');
     }
 };

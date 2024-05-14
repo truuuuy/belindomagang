@@ -21,8 +21,8 @@ return new class extends Migration
             $table->integer('jumlah');
             $table->timestamps();
 
-            $table->foreign('keranjang_id')->references('id')->on('keranjangs');
-            $table->foreign('products_id')->references('id')->on('products');
+            $table->foreign('keranjang_id')->references('id')->on('keranjangs')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 
@@ -31,6 +31,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('detail_keranjangs', function (Blueprint $table)
+        {
+            $table->dropForeign(['keranjang_id']);
+            $table->dropForeign(['product_id']);
+        });
         Schema::dropIfExists('detail_keranjangs');
     }
 };
