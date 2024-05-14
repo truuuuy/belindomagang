@@ -195,7 +195,7 @@
                         </li>
 
                         <li>
-                            <a href="{{route('banner.index')}}">
+                            <a href="">
                                 <i data-feather="activity"></i>
                                 <span> banner </span>
                             </a>
@@ -369,7 +369,7 @@
             window.location.replace("{{ route('login') }}");
         });
     </script>
-
+@include('sweetalert::alert')
 </body>
 
 </html>
