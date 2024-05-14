@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class keranjang extends Controller
+class DetailKeranjangController extends Controller
 {
     /**
      * Display a listing of the resource.
