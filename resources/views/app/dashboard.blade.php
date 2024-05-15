@@ -195,9 +195,9 @@
                         </li>
 
                         <li>
-                            <a href="">
+                            <a href="{{route('order.index')}}">
                                 <i data-feather="activity"></i>
-                                <span> banner </span>
+                                <span> order </span>
                             </a>
                         </li>
 
@@ -303,7 +303,7 @@
                     @yield('category_add')
                     @yield('product')
                     @yield('product_add')
-                    @yield('banner')
+                    @yield('order')
                     @yield('add_banner')
 
                 </div> <!-- container -->

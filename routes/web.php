@@ -1,9 +1,11 @@
 <?php
 
+use App\Models\Order;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Contracts\Role;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\TemplateController;
@@ -45,6 +47,9 @@ Route::group(['middleware' => ['role:admin']], function(){
     Route::get('/editProduct/{id}', [ProductsController::class,'edit'])->name('product.edit');
     Route::post('/updateProduct/{id}', [ProductsController::class,'update'])->name('product.update');
     Route::delete('/deleteProduct/{id}', [ProductsController::class,'destroy'])->name('product.delete');
+
+    // ORDER
+    Route::get('/indexOrder', [OrderController::class, 'index'])->name('order.index');
 
 });
 
