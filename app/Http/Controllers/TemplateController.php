@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class TemplateController extends Controller
@@ -11,7 +12,8 @@ class TemplateController extends Controller
      */
     public function index()
     {
-        return view('app.landingpage.template');
+        $data = Products::getProduct();
+        return view('app.landingpage.template', compact('data'));
     }
 
     /**

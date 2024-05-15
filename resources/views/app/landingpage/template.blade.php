@@ -13,26 +13,30 @@
     <meta name="description" content="Molla - Bootstrap eCommerce Template">
     <meta name="author" content="p-themes">
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('landingpage/assets/images/icons/apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('landingpage/assets/images/icons/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('landingpage/assets/images/icons/favicon-16x16.png')}}">
-    <link rel="manifest" href="{{asset('landingpage/assets/images/icons/site.html')}}">
-    <link rel="mask-icon" href="{{asset('landingpage/assets/images/icons/safari-pinned-tab.svg')}}" color="#666666">
-    <link rel="shortcut icon" href="{{asset('landingpage/assets/images/icons/favicon.ico')}}">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ asset('landingpage/assets/images/icons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ asset('landingpage/assets/images/icons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ asset('landingpage/assets/images/icons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('landingpage/assets/images/icons/site.html') }}">
+    <link rel="mask-icon" href="{{ asset('landingpage/assets/images/icons/safari-pinned-tab.svg') }}" color="#666666">
+    <link rel="shortcut icon" href="{{ asset('landingpage/assets/images/icons/favicon.ico') }}">
     <meta name="apple-mobile-web-app-title" content="Molla">
     <meta name="application-name" content="Molla">
     <meta name="msapplication-TileColor" content="#cc9966">
-    <meta name="msapplication-config" content="{{asset('landingpage/assets/images/icons/browserconfig.xml')}}">
+    <meta name="msapplication-config" content="{{ asset('landingpage/assets/images/icons/browserconfig.xml') }}">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="{{asset('landingpage/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css')}}">
+    <link rel="stylesheet"
+        href="{{ asset('landingpage/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css') }}">
     <!-- Plugins CSS File -->
-    <link rel="stylesheet" href="{{asset('landingpage/assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('landingpage/assets/css/plugins/owl-carousel/owl.carousel.css')}}">
-    <link rel="stylesheet" href="{{asset('landingpage/assets/css/plugins/magnific-popup/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{ asset('landingpage/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('landingpage/assets/css/plugins/owl-carousel/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('landingpage/assets/css/plugins/magnific-popup/magnific-popup.css') }}">
     <!-- Main CSS File -->
-    <link rel="stylesheet" href="{{asset('landingpage/assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('landingpage/assets/css/plugins/nouislider/nouislider.css')}}">
-    <link rel="stylesheet" href="{{asset('landingpage/assets/css/demos/demo-11.css')}}">
+    <link rel="stylesheet" href="{{ asset('landingpage/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('landingpage/assets/css/plugins/nouislider/nouislider.css') }}">
+    <link rel="stylesheet" href="{{ asset('landingpage/assets/css/demos/demo-11.css') }}">
 </head>
 
 <body>
@@ -47,8 +51,8 @@
                         </button>
 
                         <a href="index.html" class="logo">
-                            <img src="{{asset('landingpage/assets/images/demos/demo-11/logo.png')}}" alt="Molla Logo" width="82"
-                                height="25">
+                            <img src="{{ asset('../assets/images/belindo.png') }}" alt="Molla Logo"
+                                width="100" height="25">
                         </a>
                     </div><!-- End .header-left -->
 
@@ -56,218 +60,7 @@
 
                         <nav class="main-nav">
                             <ul class="menu sf-arrows">
-                                <li class="megamenu-container active">
-                                    <a href="index.html" class="sf-with-ul">Home</a>
-
-                                    <div class="megamenu demo">
-                                        <div class="menu-col">
-                                            <div class="menu-title">Choose your demo</div><!-- End .menu-title -->
-
-                                            <div class="demo-list">
-                                                <div class="demo-item">
-                                                    <a href="index-1.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/1.jpg')}});"></span>
-                                                        <span class="demo-title">01 - furniture store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item">
-                                                    <a href="index-2.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/2.jpg')}});"></span>
-                                                        <span class="demo-title">02 - furniture store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item">
-                                                    <a href="index-3.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/3.jpg')}});"></span>
-                                                        <span class="demo-title">03 - electronic store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item">
-                                                    <a href="index-4.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/4.jpg')}});"></span>
-                                                        <span class="demo-title">04 - electronic store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item">
-                                                    <a href="index-5.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/5.jpg')}});"></span>
-                                                        <span class="demo-title">05 - fashion store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item">
-                                                    <a href="index-6.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/6.jpg')}});"></span>
-                                                        <span class="demo-title">06 - fashion store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item">
-                                                    <a href="index-7.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/7.jpg')}});"></span>
-                                                        <span class="demo-title">07 - fashion store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item">
-                                                    <a href="index-8.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/8.jpg')}});"></span>
-                                                        <span class="demo-title">08 - fashion store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item">
-                                                    <a href="index-9.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/9.jpg')}});"></span>
-                                                        <span class="demo-title">09 - fashion store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item">
-                                                    <a href="index-10.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/10.jpg')}});"></span>
-                                                        <span class="demo-title">10 - shoes store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item hidden">
-                                                    <a href="index-11.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/11.jpg')}});"></span>
-                                                        <span class="demo-title">11 - furniture simple store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item hidden">
-                                                    <a href="index-12.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/12.jpg')}});"></span>
-                                                        <span class="demo-title">12 - fashion simple store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item hidden">
-                                                    <a href="index-13.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/13.jpg')}});"></span>
-                                                        <span class="demo-title">13 - market</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item hidden">
-                                                    <a href="index-14.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/14.jpg')}});"></span>
-                                                        <span class="demo-title">14 - market fullwidth</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item hidden">
-                                                    <a href="index-15.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/15.jpg')}});"></span>
-                                                        <span class="demo-title">15 - lookbook 1</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item hidden">
-                                                    <a href="index-16.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/16.jpg')}});"></span>
-                                                        <span class="demo-title">16 - lookbook 2</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item hidden">
-                                                    <a href="index-17.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/17.jpg')}});"></span>
-                                                        <span class="demo-title">17 - fashion store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item hidden">
-                                                    <a href="index-18.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/18.jpg')}});"></span>
-                                                        <span class="demo-title">18 - fashion store (with
-                                                            sidebar)</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item hidden">
-                                                    <a href="index-19.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/19.jpg')}});"></span>
-                                                        <span class="demo-title">19 - games store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item hidden">
-                                                    <a href="index-20.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/20.jpg')}});"></span>
-                                                        <span class="demo-title">20 - book store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item hidden">
-                                                    <a href="index-21.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/21.jpg')}});"></span>
-                                                        <span class="demo-title">21 - sport store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item hidden">
-                                                    <a href="index-22.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/22.jpg')}});"></span>
-                                                        <span class="demo-title">22 - tools store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item hidden">
-                                                    <a href="index-23.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/23.jpg')}});"></span>
-                                                        <span class="demo-title">23 - fashion left navigation
-                                                            store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                                <div class="demo-item hidden">
-                                                    <a href="index-24.html">
-                                                        <span class="demo-bg"
-                                                            style="background-image: url({{asset('landingpage/assets/images/menu/demos/24.jpg')}});"></span>
-                                                        <span class="demo-title">24 - extreme sport store</span>
-                                                    </a>
-                                                </div><!-- End .demo-item -->
-
-                                            </div><!-- End .demo-list -->
-
-                                            <div class="megamenu-action text-center">
-                                                <a href="#"
-                                                    class="btn btn-outline-primary-2 view-all-demos"><span>View All
-                                                        Demos</span><i class="icon-long-arrow-right"></i></a>
-                                            </div><!-- End .text-center -->
-                                        </div><!-- End .menu-col -->
-                                    </div><!-- End .megamenu -->
-                                </li>
+                           
                                 <li>
                                     <a href="category.html" class="sf-with-ul">Shop</a>
 
@@ -333,11 +126,13 @@
                                             <div class="col-md-4">
                                                 <div class="banner banner-overlay">
                                                     <a href="category.html" class="banner banner-menu">
-                                                        <img src="{{asset('landingpage/assets/images/menu/banner-1.jpg')}}" alt="Banner">
+                                                        <img src="{{ asset('landingpage/assets/images/menu/banner-1.jpg') }}"
+                                                            alt="Banner">
 
                                                         <div class="banner-content banner-content-top">
                                                             <div class="banner-title text-white">Last
-                                                                <br>Chance<br><span><strong>Sale</strong></span></div>
+                                                                <br>Chance<br><span><strong>Sale</strong></span>
+                                                            </div>
                                                             <!-- End .banner-title -->
                                                         </div><!-- End .banner-content -->
                                                     </a>
@@ -372,7 +167,8 @@
                                             <div class="col-md-6">
                                                 <div class="banner banner-overlay">
                                                     <a href="category.html">
-                                                        <img src="{{asset('landingpage/assets/images/menu/banner-2.jpg')}}" alt="Banner">
+                                                        <img src="{{ asset('landingpage/assets/images/menu/banner-2.jpg') }}"
+                                                            alt="Banner">
 
                                                         <div class="banner-content banner-content-bottom">
                                                             <div class="banner-title text-white">New
@@ -516,7 +312,8 @@
 
                                         <figure class="product-image-container">
                                             <a href="product.html" class="product-image">
-                                                <img src="{{asset('landingpage/assets/images/products/cart/product-1.jpg')}}" alt="product">
+                                                <img src="{{ asset('landingpage/assets/images/products/cart/product-1.jpg') }}"
+                                                    alt="product">
                                             </a>
                                         </figure>
                                         <a href="#" class="btn-remove" title="Remove Product"><i
@@ -537,7 +334,8 @@
 
                                         <figure class="product-image-container">
                                             <a href="product.html" class="product-image">
-                                                <img src="{{asset('landingpage/assets/images/products/cart/product-2.jpg')}}" alt="product">
+                                                <img src="{{ asset('landingpage/assets/images/products/cart/product-2.jpg') }}"
+                                                    alt="product">
                                             </a>
                                         </figure>
                                         <a href="#" class="btn-remove" title="Remove Product"><i
@@ -561,7 +359,7 @@
                         <div class="px-5 mb-1">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <button class="dropdown-item" type="submit">
+                                <button class="dropdown-item btn-light" type="submit">
                                     <i class="fe-log-out"></i>Logout
                                 </button>
                             </form>
@@ -585,7 +383,7 @@
                         }
                     }'>
                     <div class="intro-slide"
-                        style="background-image: url({{asset('landingpage/assets/images/demos/demo-11/slider/slide-1.jpg')}});">
+                        style="background-image: url({{ asset('landingpage/assets/images/demos/demo-11/slider/slide-1.jpg') }});">
                         <div class="container intro-content">
                             <h3 class="intro-subtitle text-primary">SEASONAL PICKS</h3><!-- End .h3 intro-subtitle -->
                             <h1 class="intro-title">Get All <br>The Good Stuff</h1><!-- End .intro-title -->
@@ -598,7 +396,7 @@
                     </div><!-- End .intro-slide -->
 
                     <div class="intro-slide"
-                        style="background-image: url({{asset('landingpage/assets/images/demos/demo-11/slider/slide-2.jpg')}});">
+                        style="background-image: url({{ asset('landingpage/assets/images/demos/demo-11/slider/slide-2.jpg') }});">
                         <div class="container intro-content">
                             <h3 class="intro-subtitle text-primary">all at 50% off</h3><!-- End .h3 intro-subtitle -->
                             <h1 class="intro-title text-white">The Most Beautiful <br>Novelties In Our Shop</h1>
@@ -786,442 +584,44 @@
                 </div><!-- End #product-filter-area.widget-filter-area -->
 
                 <div class="products-container" data-layout="fitRows">
-                    <div class="product-item furniture col-6 col-md-4 col-lg-3">
-                        <div class="product product-4">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="{{asset('landingpage/assets/images/demos/demo-11/products/product-1.jpg')}}" alt="Product image"
-                                        class="product-image">
-                                </a>
+                    @foreach ($data as $item)
+                        <div class="product-item furniture col-6 col-md-4 col-lg-3 mx-5">
+                            <div class="product product-4">
+                                <figure class="product-media">
+                                    <a href="product.html">
+                                        @if ($item->gambar_produk)
+                                            <img src="{{ asset('storage/produk/' . $item->gambar_produk) }}"  alt="Gambar Produk">
+                                        @else
+                                            <span>Tidak ada gambar</span>
+                                        @endif
+                                    </a>
 
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                            to wishlist</span></a>
-                                </div><!-- End .product-action -->
+                                    <div class="product-action-vertical">
+                                        <a href="#"
+                                            class="btn-product-icon btn-wishlist btn-expandable"><span>add
+                                                to wishlist</span></a>
+                                    </div><!-- End .product-action -->
 
-                                <div class="product-action">
-                                    <a href="popup/quickView.html" class="btn-product btn-quickview"
-                                        title="Quick view"><span>quick view</span></a>
-                                </div><!-- End .product-action -->
-                            </figure><!-- End .product-media -->
+                                    <div class="product-action">
+                                        <a href="popup/quickView.html" class="btn-product btn-quickview"
+                                            title="Quick view"><span>quick view</span></a>
+                                    </div><!-- End .product-action -->
+                                </figure><!-- End .product-media -->
 
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="product.html">Flow Slim Armchair</a></h3>
-                                <!-- End .product-title -->
+                                <div class="product-body">
+                                    <h3 class="product-title"><a href="product.html">{{$item->nama_produk}}</a></h3>
+                                    <!-- End .product-title -->
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span><i
+                                                class="icon-long-arrow-right"></i></a>
+                                    </div><!-- End .product-action -->
+                                </div><!-- End .product-body -->
+                            </div><!-- End .product -->
+                        </div><!-- End .product-item -->
+                    @endforeach
 
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .product-action -->
-                            </div><!-- End .product-body -->
-                        </div><!-- End .product -->
-                    </div><!-- End .product-item -->
 
-                    <div class="product-item lighting col-6 col-md-4 col-lg-3">
-                        <div class="product product-4">
-                            <figure class="product-media">
-                                <span class="product-label">Out of stock</span>
-                                <a href="product.html">
-                                    <img src="{{asset('landingpage/assets/images/demos/demo-11/products/product-2.jpg')}}" alt="Product image"
-                                        class="product-image">
-                                </a>
 
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                            to wishlist</span></a>
-                                </div><!-- End .product-action -->
-
-                                <div class="product-action">
-                                    <a href="popup/quickView.html" class="btn-product btn-quickview"
-                                        title="Quick view"><span>quick view</span></a>
-                                </div><!-- End .product-action -->
-                            </figure><!-- End .product-media -->
-
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="product.html">Swirl Suspension lamp</a></h3>
-                                <!-- End .product-title -->
-                                <div class="product-price">
-                                    <div class="out-price">$446.00</div><!-- End .out-price -->
-                                </div><!-- End .product-price -->
-
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .product-action -->
-                            </div><!-- End .product-body -->
-                        </div><!-- End .product -->
-                    </div><!-- End .product-item -->
-
-                    <div class="product-item furniture col-6 col-md-4 col-lg-3">
-                        <div class="product product-4">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="{{asset('landingpage/assets/images/demos/demo-11/products/product-3.jpg')}}" alt="Product image"
-                                        class="product-image">
-                                </a>
-
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                            to wishlist</span></a>
-                                </div><!-- End .product-action -->
-
-                                <div class="product-action">
-                                    <a href="popup/quickView.html" class="btn-product btn-quickview"
-                                        title="Quick view"><span>quick view</span></a>
-                                </div><!-- End .product-action -->
-                            </figure><!-- End .product-media -->
-
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="product.html">Block Side Table/Trolley</a></h3>
-                                <!-- End .product-title -->
-                                <div class="product-price">
-                                    $229.00
-                                </div><!-- End .product-price -->
-                                <div class="product-nav product-nav-dots">
-                                    <a href="#" class="active" style="background: #333333;"><span
-                                            class="sr-only">Color name</span></a>
-                                    <a href="#" style="background: #e2e2e2;"><span class="sr-only">Color
-                                            name</span></a>
-                                </div><!-- End .product-nav -->
-
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .product-action -->
-                            </div><!-- End .product-body -->
-                        </div><!-- End .product -->
-                    </div><!-- End .product-item -->
-
-                    <div class="product-item accessories lighting sale col-6 col-md-4 col-lg-3">
-                        <div class="product product-4">
-                            <figure class="product-media">
-                                <span class="product-label">Sale</span>
-                                <a href="product.html">
-                                    <img src="{{asset('landingpage/assets/images/demos/demo-11/products/product-4.jpg')}}" alt="Product image"
-                                        class="product-image">
-                                </a>
-
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                            to wishlist</span></a>
-                                </div><!-- End .product-action -->
-
-                                <div class="product-action">
-                                    <a href="popup/quickView.html" class="btn-product btn-quickview"
-                                        title="Quick view"><span>quick view</span></a>
-                                </div><!-- End .product-action -->
-                            </figure><!-- End .product-media -->
-
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="product.html">Madra Log Holder</a></h3>
-                                <!-- End .product-title -->
-                                <div class="product-price">
-                                    <span class="new-price">$103.00</span>
-                                    <span class="old-price">Was $130.00</span>
-                                </div><!-- End .product-price -->
-                                <div class="product-nav product-nav-dots">
-                                    <a href="#" class="active" style="background: #333333;"><span
-                                            class="sr-only">Color name</span></a>
-                                    <a href="#" style="background: #a48264;"><span class="sr-only">Color
-                                            name</span></a>
-                                </div><!-- End .product-nav -->
-
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .product-action -->
-                            </div><!-- End .product-body -->
-                        </div><!-- End .product -->
-                    </div><!-- End .product-item -->
-
-                    <div class="product-item furniture sale col-6 col-md-4 col-lg-3">
-                        <div class="product product-4">
-                            <figure class="product-media">
-                                <span class="product-label">Sale</span>
-                                <a href="product.html">
-                                    <img src="{{asset('landingpage/assets/images/demos/demo-11/products/product-5.jpg')}}" alt="Product image"
-                                        class="product-image">
-                                </a>
-
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                            to wishlist</span></a>
-                                </div><!-- End .product-action -->
-
-                                <div class="product-action">
-                                    <a href="popup/quickView.html" class="btn-product btn-quickview"
-                                        title="Quick view"><span>quick view</span></a>
-                                </div><!-- End .product-action -->
-                            </figure><!-- End .product-media -->
-
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="product.html">Foldable Tray Table</a></h3>
-                                <!-- End .product-title -->
-                                <div class="product-price">
-                                    <span class="new-price">$320.00</span>
-                                    <span class="old-price">Was $480.00</span>
-                                </div><!-- End .product-price -->
-                                <div class="product-nav product-nav-dots">
-                                    <a href="#" class="active" style="background: #333333;"><span
-                                            class="sr-only">Color name</span></a>
-                                    <a href="#" style="background: #cba374;"><span class="sr-only">Color
-                                            name</span></a>
-                                </div><!-- End .product-nav -->
-
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .product-action -->
-                            </div><!-- End .product-body -->
-                        </div><!-- End .product -->
-                    </div><!-- End .product-item -->
-
-                    <div class="product-item furniture accessories col-6 col-md-4 col-lg-3">
-                        <div class="product product-4">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="{{asset('landingpage/assets/images/demos/demo-11/products/product-6.jpg')}}" alt="Product image"
-                                        class="product-image">
-                                </a>
-
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                            to wishlist</span></a>
-                                </div><!-- End .product-action -->
-
-                                <div class="product-action">
-                                    <a href="popup/quickView.html" class="btn-product btn-quickview"
-                                        title="Quick view"><span>quick view</span></a>
-                                </div><!-- End .product-action -->
-                            </figure><!-- End .product-media -->
-
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="product.html">Original Stonewashed Beanbag</a></h3>
-                                <!-- End .product-title -->
-                                <div class="product-price">
-                                    $209.00
-                                </div><!-- End .product-price -->
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .product-action -->
-                            </div><!-- End .product-body -->
-                        </div><!-- End .product -->
-                    </div><!-- End .product-item -->
-
-                    <div class="product-item accessories lighting col-6 col-md-4 col-lg-3">
-                        <div class="product product-4">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="{{asset('landingpage/assets/images/demos/demo-11/products/product-7.jpg')}}" alt="Product image"
-                                        class="product-image">
-                                </a>
-
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                            to wishlist</span></a>
-                                </div><!-- End .product-action -->
-
-                                <div class="product-action">
-                                    <a href="popup/quickView.html" class="btn-product btn-quickview"
-                                        title="Quick view"><span>quick view</span></a>
-                                </div><!-- End .product-action -->
-                            </figure><!-- End .product-media -->
-
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="product.html">Wingback Chair</a></h3>
-                                <!-- End .product-title -->
-                                <div class="product-price">
-                                    $2450.00
-                                </div><!-- End .product-price -->
-                                <div class="product-nav product-nav-dots">
-                                    <a href="#" class="active" style="background: #cc9999;"><span
-                                            class="sr-only">Color name</span></a>
-                                    <a href="#" style="background: #999999;"><span class="sr-only">Color
-                                            name</span></a>
-                                </div><!-- End .product-nav -->
-
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .product-action -->
-                            </div><!-- End .product-body -->
-                        </div><!-- End .product -->
-                    </div><!-- End .product-item -->
-
-                    <div class="product-item furniture sale col-6 col-md-4 col-lg-3">
-                        <div class="product product-4">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="{{asset('landingpage/assets/images/demos/demo-11/products/product-8.jpg')}}" alt="Product image"
-                                        class="product-image">
-                                </a>
-
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                            to wishlist</span></a>
-                                </div><!-- End .product-action -->
-
-                                <div class="product-action">
-                                    <a href="popup/quickView.html" class="btn-product btn-quickview"
-                                        title="Quick view"><span>quick view</span></a>
-                                </div><!-- End .product-action -->
-                            </figure><!-- End .product-media -->
-
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="product.html">Cushion Set 3 Pieces</a></h3>
-                                <!-- End .product-title -->
-                                <div class="product-price">
-                                    $99.00
-                                </div><!-- End .product-price -->
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .product-action -->
-                            </div><!-- End .product-body -->
-                        </div><!-- End .product -->
-                    </div><!-- End .product-item -->
-
-                    <div class="product-item furniture accessories col-6 col-md-4 col-lg-3">
-                        <div class="product product-4">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="{{asset('landingpage/assets/images/demos/demo-11/products/product-9.jpg')}}" alt="Product image"
-                                        class="product-image">
-                                </a>
-
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                            to wishlist</span></a>
-                                </div><!-- End .product-action -->
-
-                                <div class="product-action">
-                                    <a href="popup/quickView.html" class="btn-product btn-quickview"
-                                        title="Quick view"><span>quick view</span></a>
-                                </div><!-- End .product-action -->
-                            </figure><!-- End .product-media -->
-
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="product.html">Garden Armchair</a></h3>
-                                <!-- End .product-title -->
-                                <div class="product-price">
-                                    $94.00
-                                </div><!-- End .product-price -->
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .product-action -->
-                            </div><!-- End .product-body -->
-                        </div><!-- End .product -->
-                    </div><!-- End .product-item -->
-
-                    <div class="product-item accessories col-6 col-md-4 col-lg-3">
-                        <div class="product product-4">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="{{asset('landingpage/assets/images/demos/demo-11/products/product-10.jpg')}}" alt="Product image"
-                                        class="product-image">
-                                </a>
-
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                            to wishlist</span></a>
-                                </div><!-- End .product-action -->
-
-                                <div class="product-action">
-                                    <a href="popup/quickView.html" class="btn-product btn-quickview"
-                                        title="Quick view"><span>quick view</span></a>
-                                </div><!-- End .product-action -->
-                            </figure><!-- End .product-media -->
-
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="product.html">Roots Sofa Bed</a></h3>
-                                <!-- End .product-title -->
-                                <div class="product-price">
-                                    $337.00
-                                </div><!-- End .product-price -->
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .product-action -->
-                            </div><!-- End .product-body -->
-                        </div><!-- End .product -->
-                    </div><!-- End .product-item -->
-
-                    <div class="product-item lighting sale col-6 col-md-4 col-lg-3">
-                        <div class="product product-4">
-                            <figure class="product-media">
-                                <a href="product.html">
-                                    <img src="{{asset('landingpage/assets/images/demos/demo-11/products/product-11.jpg')}}" alt="Product image"
-                                        class="product-image">
-                                </a>
-
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                            to wishlist</span></a>
-                                </div><!-- End .product-action -->
-
-                                <div class="product-action">
-                                    <a href="popup/quickView.html" class="btn-product btn-quickview"
-                                        title="Quick view"><span>quick view</span></a>
-                                </div><!-- End .product-action -->
-                            </figure><!-- End .product-media -->
-
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="product.html">Butler Stool Ladder</a></h3>
-                                <!-- End .product-title -->
-                                <div class="product-price">
-                                    $251.00
-                                </div><!-- End .product-price -->
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .product-action -->
-                            </div><!-- End .product-body -->
-                        </div><!-- End .product -->
-                    </div><!-- End .product-item -->
-
-                    <div class="product-item lighting sale col-6 col-md-4 col-lg-3">
-                        <div class="product product-4">
-                            <figure class="product-media">
-                                <span class="product-label">Sale</span>
-                                <a href="product.html">
-                                    <img src="{{asset('landingpage/assets/images/demos/demo-11/products/product-12.jpg')}}" alt="Product image"
-                                        class="product-image">
-                                </a>
-
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                            to wishlist</span></a>
-                                </div><!-- End .product-action -->
-
-                                <div class="product-action">
-                                    <a href="popup/quickView.html" class="btn-product btn-quickview"
-                                        title="Quick view"><span>quick view</span></a>
-                                </div><!-- End .product-action -->
-                            </figure><!-- End .product-media -->
-
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="product.html">Carronade Large Suspension Lamp</a>
-                                </h3><!-- End .product-title -->
-                                <div class="product-price">
-                                    <span class="new-price">$892.00</span>
-                                    <span class="old-price">Was $939.00</span>
-                                </div><!-- End .product-price -->
-                                <div class="product-nav product-nav-dots">
-                                    <a href="#" class="active" style="background: #dddad5;"><span
-                                            class="sr-only">Color name</span></a>
-                                    <a href="#" style="background: #825a45;"><span class="sr-only">Color
-                                            name</span></a>
-                                </div><!-- End .product-nav -->
-
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart"><span>add to cart</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .product-action -->
-                            </div><!-- End .product-body -->
-                        </div><!-- End .product -->
-                    </div><!-- End .product-item -->
                 </div><!-- End .products-container -->
             </div><!-- End .container -->
 
@@ -1234,12 +634,8 @@
         <footer class="footer footer-2">
             <div class="footer-bottom">
                 <div class="container">
-                    <p class="footer-copyright">Copyright © 2019 Molla Store. All Rights Reserved.</p>
-                    <!-- End .footer-copyright -->
-                    <ul class="footer-menu">
-                        <li><a href="#">Terms Of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul><!-- End .footer-menu -->
+                    <p class="footer-copyright">Copyright © 2019 Belindo. All Rights Reserved.</p>
+                   
 
                     <div class="social-icons social-icons-color">
                         <a href="#" class="social-icon social-facebook" title="Facebook" target="_blank"><i
@@ -1445,8 +841,8 @@
                 <div class="row no-gutters bg-white newsletter-popup-content">
                     <div class="col-xl-3-5col col-lg-7 banner-content-wrap">
                         <div class="banner-content text-center">
-                            <img src="{{asset('landingpage/assets/images/popup/newsletter/logo.png')}}" class="logo" alt="logo"
-                                width="60" height="15">
+                            <img src="{{ asset('landingpage/assets/images/popup/newsletter/logo.png') }}"
+                                class="logo" alt="logo" width="60" height="15">
                             <h2 class="banner-title">get <span>25<light>%</light></span> off</h2>
                             <p>Subscribe to the Molla eCommerce newsletter to receive timely updates from your favorite
                                 products.</p>
@@ -1460,38 +856,37 @@
                                 </div><!-- .End .input-group -->
                             </form>
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="register-policy-2"
-                                    required>
+                                <input type="checkbox" class="custom-control-input" id="register-policy-2" required>
                                 <label class="custom-control-label" for="register-policy-2">Do not show this popup
                                     again</label>
                             </div><!-- End .custom-checkbox -->
                         </div>
                     </div>
                     <div class="col-xl-2-5col col-lg-5 ">
-                        <img src="{{asset('landingpage/assets/images/popup/newsletter/img-1.jpg')}}" class="newsletter-img"
-                            alt="newsletter">
+                        <img src="{{ asset('landingpage/assets/images/popup/newsletter/img-1.jpg') }}"
+                            class="newsletter-img" alt="newsletter">
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Plugins JS File -->
-    <script src="{{asset('landingpage/assets/js/jquery.min.js')}}"></script>
-    <script src="{{asset('landingpage/assets/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('landingpage/assets/js/jquery.hoverIntent.min.js')}}"></script>
-    <script src="{{asset('landingpage/assets/js/jquery.waypoints.min.js')}}"></script>
-    <script src="{{asset('landingpage/assets/js/superfish.min.js')}}"></script>
-    <script src="{{asset('landingpage/assets/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('landingpage/assets/js/imagesloaded.pkgd.min.js')}}"></script>
-    <script src="{{asset('landingpage/assets/js/isotope.pkgd.min.js')}}"></script>
-    <script src="{{asset('landingpage/assets/js/wNumb.js')}}"></script>
-    <script src="{{asset('landingpage/assets/js/nouislider.min.js')}}"></script>
-    <script src="{{asset('landingpage/assets/js/bootstrap-input-spinner.js')}}"></script>
-    <script src="{{asset('landingpage/assets/js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{ asset('landingpage/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('landingpage/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('landingpage/assets/js/jquery.hoverIntent.min.js') }}"></script>
+    <script src="{{ asset('landingpage/assets/js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('landingpage/assets/js/superfish.min.js') }}"></script>
+    <script src="{{ asset('landingpage/assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('landingpage/assets/js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('landingpage/assets/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('landingpage/assets/js/wNumb.js') }}"></script>
+    <script src="{{ asset('landingpage/assets/js/nouislider.min.js') }}"></script>
+    <script src="{{ asset('landingpage/assets/js/bootstrap-input-spinner.js') }}"></script>
+    <script src="{{ asset('landingpage/assets/js/jquery.magnific-popup.min.js') }}"></script>
 
     <!-- Main JS File -->
-    <script src="{{asset('landingpage/assets/js/main.js')}}"></script>
-    <script src="{{asset('landingpage/assets/js/demos/demo-11.js')}}"></script>
+    <script src="{{ asset('landingpage/assets/js/main.js') }}"></script>
+    <script src="{{ asset('landingpage/assets/js/demos/demo-11.js') }}"></script>
 </body>
 @include('sweetalert::alert')
 

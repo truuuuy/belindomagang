@@ -193,14 +193,13 @@
                                 <span> product </span>
                             </a>
                         </li>
-
+                        
                         <li>
                             <a href="{{route('order.index')}}">
                                 <i data-feather="activity"></i>
                                 <span> order </span>
                             </a>
                         </li>
-
                         <li>
                             <a href="#sidebarMaps" data-bs-toggle="collapse">
                                 <i data-feather="map"></i>
