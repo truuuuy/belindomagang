@@ -51,8 +51,8 @@
                         </button>
 
                         <a href="index.html" class="logo">
-                            <img src="{{ asset('../assets/images/belindo.png') }}" alt="Molla Logo"
-                                width="100" height="25">
+                            <img src="{{ asset('../assets/images/belindo.png') }}" alt="Molla Logo" width="100"
+                                height="25">
                         </a>
                     </div><!-- End .header-left -->
 
@@ -60,7 +60,7 @@
 
                         <nav class="main-nav">
                             <ul class="menu sf-arrows">
-                           
+
                                 <li>
                                     <a href="category.html" class="sf-with-ul">Shop</a>
 
@@ -292,9 +292,12 @@
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <i class="icon-shopping-cart"></i>
-                                <span class="cart-count">2</span>
-                                <span class="cart-txt">$ 164,00</span>
+                                <span class="cart-count">{{ $jumlah_item }}</span>
+                                <!-- Ubah ini untuk menampilkan jumlah item di keranjang -->
+                                <span class="cart-txt">{{ $total_harga }}</span>
+                                <!-- Ubah ini untuk menampilkan total harga -->
                             </a>
+
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
@@ -590,7 +593,8 @@
                                 <figure class="product-media">
                                     <a href="product.html">
                                         @if ($item->gambar_produk)
-                                            <img src="{{ asset('storage/produk/' . $item->gambar_produk) }}"  alt="Gambar Produk">
+                                            <img src="{{ asset('storage/produk/' . $item->gambar_produk) }}"
+                                                alt="Gambar Produk">
                                         @else
                                             <span>Tidak ada gambar</span>
                                         @endif
@@ -609,17 +613,29 @@
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
-                                    <h3 class="product-title"><a href="product.html">{{$item->nama_produk}}</a></h3>
+                                    <h3 class="product-title"><a href="product.html">{{ $item->nama_produk }}</a>
+                                    </h3>
                                     <!-- End .product-title -->
                                     <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span><i
-                                                class="icon-long-arrow-right"></i></a>
+                                        <form action="/addCart/{{$produk->id}}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                            <!-- Ubah ini jika Anda menggunakan otentikasi -->
+                                            <input type="hidden" name="id" value="{{ $produk->id }}">
+                                            <!-- Ubah ini untuk menyesuaikan dengan produk yang ditampilkan -->
+                                            <input type="hidden" name="jumlah" value="1">
+                                            <!-- Misalnya, tambahkan 1 item -->
+                                            <button type="submit" class="btn-product btn-cart">
+                                                <span>Add to Cart</span>
+                                                <i class="icon-long-arrow-right"></i>
+                                            </button>
+                                        </form>
                                     </div><!-- End .product-action -->
+
                                 </div><!-- End .product-body -->
                             </div><!-- End .product -->
                         </div><!-- End .product-item -->
                     @endforeach
-
 
 
                 </div><!-- End .products-container -->
@@ -635,7 +651,7 @@
             <div class="footer-bottom">
                 <div class="container">
                     <p class="footer-copyright">Copyright © 2019 Belindo. All Rights Reserved.</p>
-                   
+
 
                     <div class="social-icons social-icons-color">
                         <a href="#" class="social-icon social-facebook" title="Facebook" target="_blank"><i

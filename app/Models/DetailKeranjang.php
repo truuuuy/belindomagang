@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Products;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -33,5 +34,8 @@ class DetailKeranjang extends Model
         return $query;
     }
 
-
+    public function produk()
+    {
+        return $this->belongsTo(Products::class, 'product_id');
+    }
 }

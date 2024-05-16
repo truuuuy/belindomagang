@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Order;
+use App\Models\Keranjang;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Contracts\Role;
@@ -10,6 +11,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\CategoriesController;
 
 /*
@@ -59,4 +61,5 @@ Route::group(['middleware' => ['role:user|admin']], function(){
 
 Route::group(['middleware' => ['role:user']], function(){
     Route::get('/template', [TemplateController::class, 'index']);
+    Route::post('/addCart/{id}', [KeranjangController::class, 'store'])->name('keranjang.add');
 });

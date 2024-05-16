@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\DetailKeranjang;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,7 +11,7 @@ class Keranjang extends Model
 {
     use HasFactory;
     protected $table = 'keranjangs';
-    protected $filllable = [
+    protected $fillable = [
         'user_id',
     ];
 
@@ -37,5 +38,10 @@ class Keranjang extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function detailKeranjangs()
+    {
+        return $this->hasMany(DetailKeranjang::class);
     }
 }
