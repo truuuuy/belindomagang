@@ -62,4 +62,10 @@ Route::group(['middleware' => ['role:user|admin']], function(){
 Route::group(['middleware' => ['role:user']], function(){
     Route::get('/template', [TemplateController::class, 'index']);
     Route::post('/addCart/{id}', [KeranjangController::class, 'store'])->name('keranjang.add');
+
+    // routes/web.php
+
+Route::get('/index', [KeranjangController::class, 'index'])->name('keranjang.index');
+Route::delete('/delete/{id}', [KeranjangController::class, 'destroy'])->name('keranjang.delete');
+
 });

@@ -14,6 +14,8 @@ class KeranjangController extends Controller
      */
     public function index()
     {
+        $keranjang = Keranjang::get();
+        return view('app.landingpage.template', compact('keranjang'));
     }
 
     /**
@@ -21,7 +23,7 @@ class KeranjangController extends Controller
      */
     public function create()
     {
-        //
+        // Implementasi untuk menampilkan form pembuatan keranjang (opsional)
     }
 
     /**
@@ -37,34 +39,44 @@ class KeranjangController extends Controller
             return response()->json(['message' => 'Produk tidak ditemukan'], 404);
         }
 
-        // Periksa apakah stok cukup untuk menambahkan ke keranjang
-        if ($produk->stok <= 0) {
-            return response()->json(['message' => 'Stok produk habis, tidak bisa ditambahkan ke keranjang'], 400);
-        }
-
         // Cek apakah jumlah yang diminta melebihi stok yang tersedia
         if ($request->jumlah > $produk->stok) {
             return response()->json(['message' => 'Jumlah produk melebihi stok yang tersedia'], 400);
         }
 
         // Buat keranjang atau temukan keranjang pengguna yang ada
-        $keranjang = Keranjang::firstOrCreate(['user_id' => $request->user_id]);
+        $keranjang = Keranjang::firstOrCreate(['user_id' => $request->user()->id]);
 
         // Buat detail keranjang baru
         $detailKeranjang = new DetailKeranjang();
         $detailKeranjang->jumlah = $request->jumlah;
-
-        // Tetapkan product_id ke detail keranjang
         $detailKeranjang->product_id = $produk->id;
 
         // Simpan detail keranjang
-        $keranjang->detailKeranjangs()->save($detailKeranjang); // Menggunakan relasi
-
-        // Kurangi stok produk
-        $produk->stok -= $request->jumlah;
-        $produk->save();
+        $keranjang->detailKeranjangs()->save($detailKeranjang);
 
         return response()->json(['message' => 'Item berhasil ditambahkan ke keranjang'], 200);
+    }
+
+    /**
+     * Display the cart items.
+     */
+    public function showCart()
+    {
+        // Ambil keranjang pengguna yang sedang login
+        $keranjang = Keranjang::where('user_id', auth()->id())->with('detailKeranjangs.product')->first();
+
+        // Jika keranjang tidak ditemukan, kembalikan respon kosong
+        if (!$keranjang) {
+            return response()->json(['cart' => [], 'total' => 0]);
+        }
+
+        // Hitung total harga
+        $total = $keranjang->detailKeranjangs->sum(function ($detail) {
+            return $detail->jumlah * $detail->product->price;
+        });
+
+        return response()->json(['cart' => $keranjang->detailKeranjangs, 'total' => $total]);
     }
 
     /**
@@ -72,6 +84,7 @@ class KeranjangController extends Controller
      */
     public function show(string $id)
     {
+        // Implementasi untuk menampilkan detail keranjang (opsional)
     }
 
     /**
@@ -79,7 +92,7 @@ class KeranjangController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // Implementasi untuk menampilkan form pengeditan keranjang (opsional)
     }
 
     /**
@@ -87,7 +100,7 @@ class KeranjangController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Implementasi untuk memperbarui keranjang (opsional)
     }
 
     /**
@@ -95,6 +108,18 @@ class KeranjangController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Find the detail keranjang by ID
+        $data = DetailKeranjang::find($id);
+
+        // Check if the item is found
+        if (!$data) {
+            return response()->json(['message' => 'Item tidak ditemukan'], 404);
+        }
+
+        // Delete the item
+        $data->delete();
+
+        // Return a JSON response indicating success
+        return response()->json(['message' => 'Keranjang berhasil dihapus'], 200);
     }
 }

@@ -301,57 +301,37 @@
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
+                                    @foreach ($data as $item)
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="product.html">Beige knitted elastic runner shoes</a>
+                                                <a href="product.html">{{$item->nama_produk}}</a>
                                             </h4>
 
                                             <span class="cart-product-info">
-                                                <span class="cart-product-qty">1</span>
-                                                x $84.00
+                                                <span class="cart-product-qty">{{$item->harga}}</span>
                                             </span>
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
                                             <a href="product.html" class="product-image">
-                                                <img src="{{ asset('landingpage/assets/images/products/cart/product-1.jpg') }}"
-                                                    alt="product">
+                                                @if ($item->gambar_produk)
+                                                    <img src="{{ asset('storage/produk/' . $item->gambar_produk) }}" width="100" alt="Gambar Produk">
+                                                @else
+                                                    <span>Tidak ada gambar</span>
+                                                @endif
                                             </a>
                                         </figure>
-                                        <a href="#" class="btn-remove" title="Remove Product"><i
-                                                class="icon-close"></i></a>
+                                        <form action="/delete/{{$item->id}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn-remove">
+                                                <i class="icon-close"></i>
+                                            </button>
+                                        </form>
+                                        {{-- <a href="" class="btn-remove" title="Remove Product"></a> --}}
                                     </div><!-- End .product -->
-
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a href="product.html">Blue utility pinafore denim dress</a>
-                                            </h4>
-
-                                            <span class="cart-product-info">
-                                                <span class="cart-product-qty">1</span>
-                                                x $76.00
-                                            </span>
-                                        </div><!-- End .product-cart-details -->
-
-                                        <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
-                                                <img src="{{ asset('landingpage/assets/images/products/cart/product-2.jpg') }}"
-                                                    alt="product">
-                                            </a>
-                                        </figure>
-                                        <a href="#" class="btn-remove" title="Remove Product"><i
-                                                class="icon-close"></i></a>
-                                    </div><!-- End .product -->
-                                </div><!-- End .cart-product -->
-
-                                <div class="dropdown-cart-total">
-                                    <span>Total</span>
-
-                                    <span class="cart-total-price">$160.00</span>
-                                </div><!-- End .dropdown-cart-total -->
-
+                                    @endforeach
                                 <div class="dropdown-cart-action">
                                     <a href="cart.html" class="btn btn-primary">View Cart</a>
                                     <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i
@@ -591,7 +571,7 @@
                         <div class="product-item furniture col-6 col-md-4 col-lg-3 mx-5">
                             <div class="product product-4">
                                 <figure class="product-media">
-                                    <a href="product.html">
+                                    <a href="">
                                         @if ($item->gambar_produk)
                                             <img src="{{ asset('storage/produk/' . $item->gambar_produk) }}"
                                                 alt="Gambar Produk">
