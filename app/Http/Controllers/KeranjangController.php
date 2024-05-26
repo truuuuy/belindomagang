@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
+use App\Models\Wishlist;
 use App\Models\Keranjang;
 use Illuminate\Http\Request;
 use App\Models\DetailKeranjang;
-use App\Models\Products;
 
 class KeranjangController extends Controller
 {
@@ -32,51 +33,64 @@ class KeranjangController extends Controller
     public function store(Request $request, $id)
     {
         // Ambil produk berdasarkan ID
-        $produk = Products::find($id);
+        $product = Products::find($id);
 
         // Pastikan produk ditemukan
-        if (!$produk) {
+        if (!$product) {
             return response()->json(['message' => 'Produk tidak ditemukan'], 404);
         }
 
         // Cek apakah jumlah yang diminta melebihi stok yang tersedia
-        if ($request->jumlah > $produk->stok) {
+        if ($request->jumlah > $product->stok) {
             return response()->json(['message' => 'Jumlah produk melebihi stok yang tersedia'], 400);
         }
 
         // Buat keranjang atau temukan keranjang pengguna yang ada
-        $keranjang = Keranjang::firstOrCreate(['user_id' => $request->user()->id]);
+        $cart = Keranjang::firstOrCreate(['user_id' => $request->user()->id]);
 
-        // Buat detail keranjang baru
-        $detailKeranjang = new DetailKeranjang();
-        $detailKeranjang->jumlah = $request->jumlah;
-        $detailKeranjang->product_id = $produk->id;
+        // Cek apakah produk sudah ada dalam detail keranjang
+        $detailKeranjang = DetailKeranjang::where('keranjang_id', $cart->id)
+            ->where('product_id', $product->id)
+            ->first();
 
-        // Simpan detail keranjang
-        $keranjang->detailKeranjangs()->save($detailKeranjang);
+        if ($detailKeranjang) {
+            // Update jumlah jika produk sudah ada di keranjang
+            $newJumlah = $detailKeranjang->jumlah + $request->jumlah;
 
-        return response()->json(['message' => 'Item berhasil ditambahkan ke keranjang'], 200);
+            // Pastikan jumlah baru tidak melebihi stok yang tersedia
+            if ($newJumlah > $product->stok) {
+                return response()->json(['message' => 'Jumlah produk melebihi stok yang tersedia'], 400);
+            }
+
+            $detailKeranjang->jumlah = $newJumlah;
+            $detailKeranjang->save();
+        } else {
+            // Buat detail keranjang baru jika produk belum ada di keranjang
+            $detailKeranjang = new DetailKeranjang();
+            $detailKeranjang->jumlah = $request->jumlah;
+            $detailKeranjang->product_id = $product->id;
+            $cart->detailKeranjangs()->save($detailKeranjang);
+        }
+
+        // Cek jika whilist mendapatkan request
+        if ($request->has('wishlist') && $request->wishlist == 'true') {
+            $wishlist = Wishlist::firstOrCreate([
+                'user_id' => $request->user()->id,
+                'product_id' => $product->id,
+            ]);
+            // dd($wishlist);
+        }
+
+        return redirect()->route('template.index');
     }
+
+
 
     /**
      * Display the cart items.
      */
     public function showCart()
     {
-        // Ambil keranjang pengguna yang sedang login
-        $keranjang = Keranjang::where('user_id', auth()->id())->with('detailKeranjangs.product')->first();
-
-        // Jika keranjang tidak ditemukan, kembalikan respon kosong
-        if (!$keranjang) {
-            return response()->json(['cart' => [], 'total' => 0]);
-        }
-
-        // Hitung total harga
-        $total = $keranjang->detailKeranjangs->sum(function ($detail) {
-            return $detail->jumlah * $detail->product->price;
-        });
-
-        return response()->json(['cart' => $keranjang->detailKeranjangs, 'total' => $total]);
     }
 
     /**
@@ -109,7 +123,7 @@ class KeranjangController extends Controller
     public function destroy(string $id)
     {
         // Find the detail keranjang by ID
-        $data = DetailKeranjang::find($id);
+        $data = Keranjang::find($id);
 
         // Check if the item is found
         if (!$data) {

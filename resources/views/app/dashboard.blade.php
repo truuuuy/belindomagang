@@ -12,7 +12,8 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('../assets/images/favicon.ico') }}">
     <!-- Bootstrap Tables css -->
-    <link href="{{asset('../assets/libs/bootstrap-table/bootstrap-table.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('../assets/libs/bootstrap-table/bootstrap-table.min.css') }}" rel="stylesheet"
+        type="text/css" />
     <!-- plugin css -->
     <link href="{{ asset('../assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css') }}"
         rel="stylesheet" type="text/css" />
@@ -181,21 +182,21 @@
 
                         <li class="menu-title mt-2">Apps</li>
                         <li>
-                            <a href="{{route('category.index')}}">
+                            <a href="{{ route('category.index') }}">
                                 <i data-feather="activity"></i>
                                 <span> category </span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{route('product.index')}}">
+                            <a href="{{ route('product.index') }}">
                                 <i data-feather="activity"></i>
                                 <span> product </span>
                             </a>
                         </li>
-                        
+
                         <li>
-                            <a href="{{route('order.index')}}">
+                            <a href="{{ route('order.index') }}">
                                 <i data-feather="activity"></i>
                                 <span> order </span>
                             </a>
@@ -361,14 +362,38 @@
 
     {{-- Fungsi mencegah tombol kembali --}}
     <script>
+        // Saat form logout disubmit
         document.getElementById('logout-form').addEventListener('submit', function(event) {
             event.preventDefault(); // Menghentikan form dari submit langsung
 
-            // Mengarahkan pengguna ke halaman login setelah logout berhasil
+            // Lakukan logout dengan mengirimkan form
+            var form = this;
+            fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form)
+                })
+                .then(function(response) {
+                    // Jika logout berhasil, arahkan pengguna ke halaman login
+                    if (response.redirected) {
+                        window.location.replace(response.url);
+                    } else {
+                        // Jika tidak, munculkan pesan atau tindakan lain sesuai kebutuhan
+                        console.error('Logout gagal.');
+                    }
+                })
+                .catch(function(error) {
+                    console.error('Terjadi kesalahan:', error);
+                });
+        });
+
+        // Mencegah pengguna menggunakan tombol "Kembali" pada browser setelah logout
+        window.addEventListener('popstate', function(event) {
+            // Mengarahkan pengguna ke halaman login setelah mencoba menggunakan tombol "Kembali"
             window.location.replace("{{ route('login') }}");
         });
     </script>
-@include('sweetalert::alert')
+
+    @include('sweetalert::alert')
 </body>
 
 </html>

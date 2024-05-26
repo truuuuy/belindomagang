@@ -23,16 +23,40 @@ class DetailKeranjang extends Model
             ->select(
                 'detail_keranjangs.id',
                 'detail_keranjangs.jumlah',
-                'keranjangs.keranjang_id',
-                'products.nama_produk.'
-
+                'keranjangs.id AS keranjang_id',
+                'products.nama_produk',
+                'products.gambar_produk',
+                'products.harga',
             )
-            ->join('keranjang', 'keranjang.id', '=', 'detail_keranjangs.order_id')
+            ->join('keranjangs', 'keranjangs.id', '=', 'detail_keranjangs.keranjang_id')
             ->join('products', 'products.id', '=', 'detail_keranjangs.product_id')
             ->get();
 
         return $query;
     }
+
+    public static function getDetailById($keranjangId)
+    {
+        return DB::table('detail_keranjangs')
+            ->select(
+                'detail_keranjangs.id',
+                'detail_keranjangs.jumlah',
+                'keranjangs.id AS keranjang_id',
+                'products.nama_produk',
+                'products.gambar_produk',
+                'products.harga'
+            )
+            ->join('keranjangs', 'keranjangs.id', '=', 'detail_keranjangs.keranjang_id')
+            ->join('products', 'products.id', '=', 'detail_keranjangs.product_id')
+            ->where('keranjangs.id', $keranjangId)
+            ->get();
+    }
+
+    public static function deleteDetailKeranjang($id)
+    {
+        return DB::delete('DELETE FROM detail_keranjangs WHERE id = ?', [$id]);
+    }
+
 
     public function produk()
     {

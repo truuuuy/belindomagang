@@ -285,61 +285,68 @@
 
                         <a href="wishlist.html" class="wishlist-link">
                             <i class="icon-heart-o"></i>
-                            <span class="wishlist-count">3</span>
+                            <span class="wishlist-count">{{ $wishlistCount }}</span>
                         </a>
 
                         <div class="dropdown cart-dropdown">
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <i class="icon-shopping-cart"></i>
-                                <span class="cart-count">{{ $jumlah_item }}</span>
+                                <span class="cart-count">{{ $totalQuantity }}</span>
                                 <!-- Ubah ini untuk menampilkan jumlah item di keranjang -->
-                                <span class="cart-txt">{{ $total_harga }}</span>
+                                <span class="cart-txt"></span>
                                 <!-- Ubah ini untuk menampilkan total harga -->
                             </a>
 
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
-                                    @foreach ($data as $item)
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a href="product.html">{{$item->nama_produk}}</a>
-                                            </h4>
+                                    @foreach ($detail as $item)
+                                        <div class="product">
+                                            <div class="product-cart-details">
+                                                <h4 class="product-title">
+                                                    <a href="product.html">{{ $item->nama_produk }}</a>
+                                                </h4>
 
-                                            <span class="cart-product-info">
-                                                <span class="cart-product-qty">{{$item->harga}}</span>
-                                            </span>
-                                        </div><!-- End .product-cart-details -->
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">{{ $item->harga }}</span>
+                                                </span>
+                                            </div><!-- End .product-cart-details -->
 
-                                        <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
-                                                @if ($item->gambar_produk)
-                                                    <img src="{{ asset('storage/produk/' . $item->gambar_produk) }}" width="100" alt="Gambar Produk">
-                                                @else
-                                                    <span>Tidak ada gambar</span>
-                                                @endif
-                                            </a>
-                                        </figure>
-                                        <form action="/delete/{{$item->id}}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn-remove">
-                                                <i class="icon-close"></i>
-                                            </button>
-                                        </form>
-                                        {{-- <a href="" class="btn-remove" title="Remove Product"></a> --}}
-                                    </div><!-- End .product -->
+                                            <figure class="product-image-container">
+                                                <a href="product.html" class="product-image">
+                                                    @if ($item->gambar_produk)
+                                                        <img src="{{ asset('storage/produk/' . $item->gambar_produk) }}"
+                                                            width="100" alt="Gambar Produk">
+                                                    @else
+                                                        <span>Tidak ada gambar</span>
+                                                    @endif
+                                                </a>
+                                            </figure>
+                                            <form action="/del/{{ $item->id }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn-remove">
+                                                    <i class="icon-close"></i>
+                                                </button>
+                                            </form>
+                                            {{-- <a href="" class="btn-remove" title="Remove Product"></a> --}}
+                                        </div><!-- End .product -->
+                                        <div class="dropdown-cart-action">
+                                            <a href="cart.html" class="btn btn-primary">View Cart</a>
+                                            <a href="checkout.html"
+                                                class="btn btn-outline-primary-2"><span>Checkout</span><i
+                                                    class="icon-long-arrow-right"></i></a>
+                                        </div><!-- End .dropdown-cart-total -->
                                     @endforeach
-                                <div class="dropdown-cart-action">
-                                    <a href="cart.html" class="btn btn-primary">View Cart</a>
-                                    <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .dropdown-cart-total -->
-                            </div><!-- End .dropdown-menu -->
-                        </div><!-- End .cart-dropdown -->
-                        <div class="px-5 mb-1">
+
+
+
+                                </div><!-- End .dropdown-menu -->
+                            </div><!-- End .cart-dropdown -->
+
+                        </div><!-- End .header-right -->
+                        <div class="mb-1" style="margin-left: 10%;">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button class="dropdown-item btn-light" type="submit">
@@ -347,9 +354,8 @@
                                 </button>
                             </form>
                         </div>
-                    </div><!-- End .header-right -->
-                </div><!-- End .container -->
-            </div><!-- End .header-middle -->
+                    </div><!-- End .container -->
+                </div><!-- End .header-middle -->
         </header><!-- End .header -->
 
         <main class="main">
@@ -581,9 +587,19 @@
                                     </a>
 
                                     <div class="product-action-vertical">
+                                        <form action="{{ route('wishlist.store', $item->id) }}" method="POST"
+                                            id="addToWishlistForm{{ $item->id }}" style="display: none;">
+                                            @csrf
+                                            <input type="hidden" name="wishlist" value="true">
+                                        </form>
+
                                         <a href="#"
-                                            class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                                to wishlist</span></a>
+                                            onclick="event.preventDefault(); document.getElementById('addToWishlistForm{{ $item->id }}').submit();"
+                                            class="btn-product-icon btn-wishlist btn-expandable">
+                                            <span>Add to Wishlist</span>
+                                        </a>
+
+
                                     </div><!-- End .product-action -->
 
                                     <div class="product-action">
@@ -597,25 +613,27 @@
                                     </h3>
                                     <!-- End .product-title -->
                                     <div class="product-action">
-                                        <form action="/addCart/{{$produk->id}}" method="POST">
+
+                                        <form id="addCartForm{{ $item->id }}"
+                                            action="/addCart/{{ $item->id }}" method="POST"
+                                            style="display: none;">
                                             @csrf
                                             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                                            <!-- Ubah ini jika Anda menggunakan otentikasi -->
-                                            <input type="hidden" name="id" value="{{ $produk->id }}">
-                                            <!-- Ubah ini untuk menyesuaikan dengan produk yang ditampilkan -->
-                                            <input type="hidden" name="jumlah" value="1">
-                                            <!-- Misalnya, tambahkan 1 item -->
-                                            <button type="submit" class="btn-product btn-cart">
-                                                <span>Add to Cart</span>
-                                                <i class="icon-long-arrow-right"></i>
-                                            </button>
+                                            <input type="hidden" name="jumlah" value="1" min="1"
+                                                required>
                                         </form>
+                                        <a href="#" class="btn-cart-link"
+                                            onclick="document.getElementById('addCartForm{{ $item->id }}').submit(); return false;">
+                                            Add to Cart
+                                        </a>
                                     </div><!-- End .product-action -->
+
 
                                 </div><!-- End .product-body -->
                             </div><!-- End .product -->
                         </div><!-- End .product-item -->
                     @endforeach
+
 
 
                 </div><!-- End .products-container -->
